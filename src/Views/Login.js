@@ -20,9 +20,9 @@ export default function FormLogin() {
     console.log(email);
     console.log(password);
   };
-  const forgotPass =() =>{
-      console.log('te olvidaste tu contra');
-  }
+  const forgotPass = () => {
+    console.log("te olvidaste tu contra");
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -34,11 +34,11 @@ export default function FormLogin() {
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
-            <Form 
-            onClick={login} 
-            onChangeEmail={e=>setEmail(e.target.value)}
-            onChangePass={e=>setPassword(e.target.value)}
-             />
+            <Form
+              onClick={login}
+              onChangeEmail={(e) => setEmail(e.target.value)}
+              onChangePass={(e) => setPassword(e.target.value)}
+            />
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2" onClick={forgotPass}>
@@ -62,8 +62,9 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    // backgroundImage: 'url(https://source.unsplash.com/random)',
-    // backgroundRepeat: 'no-repeat',
+    backgroundImage:
+      "url(https://images.unsplash.com/photo-1521931961826-fe48677230a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)",
+    backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[50]
