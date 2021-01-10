@@ -42,7 +42,7 @@ export default function Register() {
             <Grid container>
               <Grid item>
                 <Link href="/" variant="body2">
-                  {"Do have an account? Sign In"}
+                  {"Do you have an account? Sign In"}
                 </Link>
               </Grid>
             </Grid>

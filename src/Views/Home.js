@@ -5,6 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import TextField from "@material-ui/core/TextField";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { Container } from "@material-ui/core";
 
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support. `;
@@ -13,68 +15,85 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.rootMain}>
-      <Grid container spacing={1}>
-        <Grid item xs={3}>
-          <div style={{ background: "#9c27b0", height: "92vh", width: "100%" }}>
-            <div className={classes.root}>
-              <Paper className={classes.paperHeader}>
-                <Grid container wrap="nowrap" spacing={2}>
-                  <Grid item>
-                    <Avatar>W</Avatar>
-                  </Grid>
-                  <Grid item xs zeroMinWidth>
-                    <Typography noWrap>{message}</Typography>
-                  </Grid>
+    <Grid container component="main" className={classes.root}>
+      <CssBaseline />
+      <Grid item xs={3} sm={3} md={3}>
+        <div style={{ background: "#fff", height: "92vh", width: "100%" }}>
+          <div className={classes.root}>
+            <Paper className={classes.paperHeader} elevation={3}>
+              <Grid container wrap="nowrap" spacing={2}>
+                <Grid item>
+                  <Avatar>W</Avatar>
                 </Grid>
-              </Paper>
-
-              <Paper className={classes.paperHeader}>
-                <Grid container wrap="nowrap" spacing={2}>
-                  <Grid item>
-                    <Avatar>W</Avatar>
-                  </Grid>
-                  <Grid item xs>
-                    <Typography>{message}</Typography>
-                  </Grid>
-                </Grid>
-              </Paper>
-            </div>
-          </div>
-        </Grid>
-        <Grid
-          item
-          xs={9}
-          container
-          direction="row"
-          justify="center"
-          alignItems="flex-end"
-        >
-          <div style={{ background: "blue", width: "100%", height: "92vh" }}>
-            <div className={classes.root}>
-              <Grid container spacing={3}>
-                <Grid item xs={12}>
-                  <Paper className={classes.paper}>xs=12</Paper>
-                </Grid>
-                <Grid item xs={12} alignItems="flex-end">
-                  <Paper className={classes.paper}>xs=12</Paper>
+                <Grid item xs zeroMinWidth>
+                  <Typography noWrap>{message}</Typography>
                 </Grid>
               </Grid>
-            </div>
+            </Paper>
           </div>
+        </div>
+      </Grid>
+      <Grid
+        item
+        xs={9}
+        sm={9}
+        md={9}
+        component={Paper}
+        elevation={2}
+        square
+        className={classes.root}
+      >
+        {/* <div style={{ background: "blue", width: "100%", height: "92vh" }}>
+          <div className={classes.root}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>xs=12</Paper>
+              </Grid>
+              <Grid item xs={12} alignItems="flex-end">
+                <Paper className={classes.paper}>xs=12</Paper>
+              </Grid>
+            </Grid>
+          </div>
+        </div> */}
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          component={Paper}
+          elevation={0}
+          square
+        >
+          <Container>
+            <h1>Hola aca el chat</h1>
+          </Container>
+        </Grid>
+        <Grid
+          direction="column"
+          justify="flex-end"
+          alignItems="center"
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          component={Paper}
+          elevation={6}
+        >
+          <Paper className={classes.paper} container>xs=12</Paper>
         </Grid>
       </Grid>
-    </div>
+    </Grid>
   );
 };
 const useStyles = makeStyles((theme) => ({
   rootMain: {
     flexGrow: 1,
+    // flexDirection:
   },
   root: {
     flexGrow: 1,
     overflow: "hidden",
-    padding: theme.spacing(0, 3),
+    // padding: theme.spacing(0, 3),
   },
   paper: {
     padding: theme.spacing(2),
