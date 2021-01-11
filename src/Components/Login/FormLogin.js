@@ -1,9 +1,14 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '../ButtonC'
+import React from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "../ButtonC";
 
-export default function FormLogin({ onClick, onChangeEmail, onChangePass }) {
-
+export default function FormLogin({
+  onClick,
+  onChangeEmail,
+  onChangePass,
+  userEmail,
+  userPassword,
+}) {
   return (
     <>
       <TextField
@@ -17,6 +22,7 @@ export default function FormLogin({ onClick, onChangeEmail, onChangePass }) {
         autoComplete="email"
         autoFocus
         onChange={onChangeEmail}
+        defaultValue={userEmail}
       />
       <TextField
         variant="outlined"
@@ -29,16 +35,16 @@ export default function FormLogin({ onClick, onChangeEmail, onChangePass }) {
         id="password"
         autoComplete="current-password"
         onChange={onChangePass}
+        defaultValue={userPassword}
       />
       <Button
         type="submit"
         fullWidth
         variant="contained"
         color="primary"
-        text='Login'
+        text="Login"
         onClick={onClick}
       />
     </>
   );
 }
-

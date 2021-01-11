@@ -6,6 +6,10 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
+import moduleName from "firebase/app";
+import "firebase/database";
+import "firebase/auth";
+
 import Form from "../Components/Login/FormLogin";
 
 export default function FormLogin() {
@@ -14,6 +18,18 @@ export default function FormLogin() {
   //estados
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [user, setuser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setuser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const login = () => {
     console.log("hola");
@@ -36,8 +52,10 @@ export default function FormLogin() {
           <form className={classes.form} noValidate>
             <Form
               onClick={login}
-              onChangeEmail={(e) => setEmail(e.target.value)}
-              onChangePass={(e) => setPassword(e.target.value)}
+              onChangeEmail={handleChange}
+              onChangePass={handleChange}
+              userPassword={user.password}
+              userEmail={user.email}
             />
             <Grid container>
               <Grid item xs>
